@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,27 +22,35 @@
     }
     #a {
       opacity: .1;
-      animation: draw-a 1s reverse ease-in forwards;
       stroke-dasharray: 305;
       stroke-dashoffset: -305px;
+    }
+    .a {
+      animation: draw-a 1s reverse ease-in forwards;
     }
     #b {
       opacity: .3;
-      animation: draw-b 1s 0.9s reverse ease-in forwards;
       stroke-dasharray: 308;
       stroke-dashoffset: -308px;
     }
+    .b {
+      animation: draw-b 1s 1s reverse ease-in forwards;
+    }
     #c {
       opacity: .5;
-      animation: draw-c 1s 1.9s reverse ease-in forwards;
       stroke-dasharray: 305;
       stroke-dashoffset: -305px;
     }
+    .c {
+      animation: draw-c 1s 2s reverse ease-in forwards;
+    }
     #d {
       opacity: .7;
-      animation: draw-d 1s 2.9s reverse ease-in forwards;
       stroke-dasharray: 315;
       stroke-dashoffset: -315px;
+    }
+    .d {
+      animation: draw-d 1s 3s reverse ease-in forwards;
     }
     @keyframes draw-a {
       from { stroke-dashoffset: 0; }
@@ -62,39 +71,39 @@
   </style>
 </head>
 <body>
+  <div class="outer">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="640">
+        <path class="a" d="M410 140 L180 340" id="a"/>
+        <path class="b" d="M140 340c-64.06-12.7-96.45-46.03-97.17-100-.73-53.97 31.66-87.3 97.17-100" id="b"/>
+        <path class="c" d="M180 142 L410 340" id="c"/>
+        <path class="d" d="M462.39 340c65.94-11.97 98.48-45.31 97.61-100-.87-54.69-35.94-88.03-105.22-100" id="d"/>
+    </svg>
+  </div>
+  <script>
+    var path_A = document.querySelector('.outer #a');
+    var path_B = document.querySelector('.outer #b');
+    var path_C = document.querySelector('.outer #c');
+    var path_D = document.querySelector('.outer #d');
 
-<div class="outer">
-  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="640">
-      <path d="M410 140 L180 340" id="a"/>
-      <path d="M140 340c-64.06-12.7-96.45-46.03-97.17-100-.73-53.97 31.66-87.3 97.17-100" id="b"/>
-      <path d="M180 142 L410 340" id="c"/>
-      <path d="M462.39 340c65.94-11.97 98.48-45.31 97.61-100-.87-54.69-35.94-88.03-105.22-100" id="d"/>
-  </svg>
-<script>
-  // var path = document.querySelector('.outer .st4');
-  // var pathLength = path.getTotalLength();
-  console.log("a: " + document.querySelector('.outer #a').getTotalLength());
-  console.log("b: " + document.querySelector('.outer #b').getTotalLength());
-  console.log("c: " + document.querySelector('.outer #c').getTotalLength());
-  console.log("d: " + document.querySelector('.outer #d').getTotalLength());
+    // console.log("a: " + path_A.getTotalLength());
+    // console.log("b: " + path_B.getTotalLength());
+    // console.log("c: " + path_C.getTotalLength());
+    // console.log("d: " + path_D.getTotalLength());
 
-  document.querySelector('.outer #d').addEventListener('animationend', function() {
-    console.log('end');
-    // document.querySelector('.outer #a').style.animation = '';
-    // document.querySelector('.outer #b').style.animation = '';
-    // document.querySelector('.outer #c').style.animation = '';
-    // document.querySelector('.outer #d').style.animation = '';
-    //
-    // document.querySelector('.outer #a').style.strokeDashoffset = '305px';
-    // document.querySelector('.outer #b').style.strokeDashoffset = '305px';
-    // document.querySelector('.outer #c').style.strokeDashoffset = '305px';
-    // document.querySelector('.outer #d').style.strokeDashoffset = '305px';
-    //
-    // document.querySelector('.outer #a').style.animation = 'draw-a 1s reverse ease-in forwards';
-    // document.querySelector('.outer #b').style.animation = 'draw-b 1s 0.9s reverse ease-in forwards';
-    // document.querySelector('.outer #c').style.animation = 'draw-c 1s 1.9s reverse ease-in forwards';
-    // document.querySelector('.outer #d').style.animation = 'draw-d 1s 2.9s reverse ease-in forwards';
-  })
-</script>
+    path_D.addEventListener('animationend', function() {
+      path_A.classList.remove('a');
+      path_B.classList.remove('b');
+      path_C.classList.remove('c');
+      path_D.classList.remove('d');
+
+      setTimeout(function() {
+        path_A.classList.add('a');
+        path_B.classList.add('b');
+        path_C.classList.add('c');
+        path_D.classList.add('d');
+      })
+    });
+
+  </script>
 </body>
 </html>
