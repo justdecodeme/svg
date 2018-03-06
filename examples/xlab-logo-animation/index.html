@@ -8,11 +8,10 @@
   <title>xLab Logo Animation</title>
   <style>
     svg {
-      background: red;
       padding-top: 15px;
     }
     .outer {
-        background: #f0aaaa;
+        background: rgb(96,29,134);
         width: 100px;
         height: 100px;
         margin: 0 auto;
@@ -23,42 +22,42 @@
     }
     path {
       fill: #fff;
-      stroke: black;
+      stroke: #fff;
       stroke-width: 14px;
       fill: #fff;
       fill-opacity: 0;
     }
     #a {
-      opacity: .1;
+      /*opacity: .1;*/
       stroke-dasharray: 305;
       stroke-dashoffset: -305px;
     }
     .a {
-      animation: draw-a 1s reverse ease-in forwards;
+      animation: draw-a .2s reverse ease-in forwards;
     }
     #b {
-      opacity: .3;
+      /*opacity: .3;*/
       stroke-dasharray: 308;
       stroke-dashoffset: -308px;
     }
     .b {
-      animation: draw-b 1s 1s reverse ease-in forwards;
+      animation: draw-b .2s .2s reverse ease-in forwards;
     }
     #c {
-      opacity: .5;
+      /*opacity: .5;*/
       stroke-dasharray: 305;
       stroke-dashoffset: -305px;
     }
     .c {
-      animation: draw-c 1s 2s reverse ease-in forwards;
+      animation: draw-c .2s .4s reverse ease-in forwards;
     }
     #d {
-      opacity: .7;
+      /*opacity: .7;*/
       stroke-dasharray: 315;
       stroke-dashoffset: -315px;
     }
     .d {
-      animation: draw-d 1s 3s reverse ease-in forwards;
+      animation: draw-d .2s .6s reverse ease-in forwards;
     }
     @keyframes draw-a {
       from { stroke-dashoffset: 0; }
