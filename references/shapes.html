@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    svg {
+      background: rgba(0,0,0,0.05);
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    The following commands are available for path data:
+
+    M = moveto
+    L = lineto
+    H = horizontal lineto
+    V = vertical lineto
+    C = curveto
+    S = smooth curveto
+    Q = quadratic Bézier curve
+    T = smooth quadratic Bézier curveto
+    A = elliptical Arc
+    Z = closepath    
+
+    Note: All of the commands above can also be expressed with lower letters. Capital letters means absolutely positioned, lower cases means relatively positioned.
+   -->
+
+  <svg width="200" height="200">
+    <circle cx="100" cy="100" r="50" stroke="red" stroke-width="20" stroke-opacity=".1" fill="blue" fill-opacity="0.3"/>
+  </svg>
+
+  <svg width="200" height="200">
+    <rect x="10" y="10" width="150" height="100" rx="20" ry="20" opacity="0.5"/>
+  </svg>
+
+  <svg width="200" height="200">
+    <ellipse cx="100" cy="100" rx="70" ry="30" style="fill:red;" />
+  </svg>
+
+  <svg width="200" height="200">
+    <line x1="50" y1="50" x2="100" y2="100" stroke="black" stroke-width="4"/>
+  </svg>
+
+  <svg width="200" height="200">
+    <polygon points="100,50 150,100 100,150 50,100" fill="lime" />
+  </svg>
+
+  <svg width="200" height="200">
+    <polygon points="100,10 40,188 190,78 10,78 160,188" fill-rule="evenodd" />
+  </svg>
+
+  <svg width="200" height="200">
+    <polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160" stroke="black" fill="none"/>
+  </svg>
+
+  <svg width="200" height="200">
+    <path d="M100 50 L50 150 L150 150 Z" fill="purple"/>
+  </svg>
+
+  <svg height="200" width="200">
+    <g fill="none" stroke="black" stroke-width="10">
+      <path stroke="red" d="M10 20 l100 0" />
+      <path stroke-linecap="round" d="M10 40 l100 0" />
+      <path stroke-dasharray="10,10,5,5,5,10" d="M5 60 l215 0" />
+    </g>
+  </svg>
+
+  <br>
+
+  <svg height="400" width="450">
+    <path id="lineAB" d="M 100 350 l 150 -300" stroke="red" stroke-width="3" fill="none" />
+    <path id="lineBC" d="M 250 50 l 150 300" stroke="red" stroke-width="3" fill="none" />
+    <path d="M 175 200 l 150 0" stroke="green" stroke-width="3" fill="none" />
+    <path d="M 100 350 q 150 -300 300 0" stroke="blue" stroke-width="5" fill="none" />
+    <!-- Mark relevant points -->
+    <g stroke="black" stroke-width="3" fill="black">
+      <circle id="pointA" cx="100" cy="350" r="3" />
+      <circle id="pointB" cx="250" cy="50" r="3" />
+      <circle id="pointC" cx="400" cy="350" r="3" />
+    </g>
+    <!-- Label the points -->
+    <g font-size="30" font-family="sans-serif" fill="black" stroke="none" text-anchor="middle">
+      <text x="100" y="350" dx="-30">A</text>
+      <text x="250" y="50" dy="-10">B</text>
+      <text x="400" y="350" dx="30">C</text>
+    </g>
+  </svg>  
+</body>
+</html>

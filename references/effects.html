@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    svg {
+      background: rgba(0,0,0,0.05);
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    The available filter elements in SVG are:
+
+    <feBlend> - filter for combining images
+    <feColorMatrix> - filter for color transforms
+    <feComponentTransfer>
+    <feComposite>
+    <feConvolveMatrix>
+    <feDiffuseLighting>
+    <feDisplacementMap>
+    <feFlood>
+    <feGaussianBlur>
+    <feImage>
+    <feMerge>
+    <feMorphology>
+    <feOffset> - filter for drop shadows
+    <feSpecularLighting>
+    <feTile>
+    <feTurbulence>
+    <feDistantLight> - filter for lighting
+    <fePointLight> - filter for lighting
+    <feSpotLight> - filter for lighting    
+
+    Tip: You can use multiple filters on each SVG element!
+
+    All internet SVG filters are defined within a <defs> element. The <defs> element is short for definitions and contains definition of special elements (such as filters).
+    The <filter> element is used to define an SVG filter. The <filter> element has a required id attribute which identifies the filter. The graphic then points to the filter to use.
+
+    The in="SourceGraphic" part defines that the effect is created for the entire element
+    The stdDeviation attribute defines the amount of the blur
+   -->
+  <svg width="200" height="200">
+    <defs>
+      <filter id="f1" x="0" y="0">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+      </filter>
+    </defs>
+    <circle cx="100" cy="100" r="50" fill="blue" filter="url(#f1)"/>
+  </svg> 
+
+  <svg height="200" width="200">
+    <defs>
+      <filter id="f4" x="0" y="0" width="200%" height="200%">
+        <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
+        <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+        <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" />
+        <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+      </filter>
+    </defs>
+    <circle cx="100" cy="100" r="50" fill="blue" filter="url(#f4)"/>
+  </svg>  
+</body>
+</html>
